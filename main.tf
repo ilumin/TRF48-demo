@@ -2,8 +2,8 @@ provider "aws" {
   region = "${var.region}"
 }
 
-module "foundation" {
-  source = "modules/foundation"
+module "ec2" {
+  source = "modules/ec2"
   project = "${var.project}"
   platform = "${terraform.workspace}"
   team = "${var.team}"
