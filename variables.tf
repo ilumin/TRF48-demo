@@ -2,6 +2,14 @@ variable "region" {
   default = "ap-southeast-1"
 }
 
+variable "project" {
+  default = "FMS"
+}
+
+variable "team" {
+  default = "ADEN"
+}
+
 variable "ami" {
   type = "map"
   default = {
@@ -9,7 +17,7 @@ variable "ami" {
   }
 }
 
-variable "ec2_size" {
+variable "instance_type" {
   type = "map"
   default = {
     amazon_linux_ami = "t2.micro"
