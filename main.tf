@@ -1,10 +1,15 @@
 provider "aws" {
-  region = "ap-southeast-1"
+  region = "${var.region}"
 }
 
 resource "aws_instance" "amazon_linux_ami" {
-  ami = "ami-08569b978cc4dfa10"
-  instance_type = "t2.micro"
+  ami = "${lookup(var.ami, var.region, "ami-08569b978cc4dfa10")}"
+  instance_type = "${lookup(var.ec2_size, "amazon_linux_ami", "t2.micro")}"
+
+  tags {
+    Name = "ilumin-ec2"
+    Project = "TRF48"
+  }
 }
 
 output "instance_id" {
